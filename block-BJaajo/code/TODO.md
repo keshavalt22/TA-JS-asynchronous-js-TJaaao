@@ -32,17 +32,6 @@ setTimeout(() => console.log('Third'), 0);
 console.log('Fourth');
 ```
 
-4.
-
-```js
-console.log('First');
-function secondCall() {
-  console.log('Second');
-}
-setTimeout(secondCall, 1000); // execute this code after 1000 ms
-setTimeout(() => console.log('Third'), 0);
-console.log('Fourth');
-```
 
 5. What will be the output of the code below and why? Also write the timing of the output starting with 0 ms.
 
@@ -61,12 +50,16 @@ setTimeout(function exec() {
 runWhileLoopForNSeconds(3);
 console.log('Third');
 ```
+:- The out put will be first in 0ms , third in 3000 ms, second in 3001 ms, because runWhileLoopForNSeconds function will take 3000ms to execute and only after that setTimeout finction will be executed because it will be excuted through web browser API.
+
 
 6. Convert the synchronous code given below into asynchronous. If you execute this code it will print one, two and three. Change the code in such a way that it should print `one`, `three` and `two`. You are not allowed to move the code up and down.
 
 ```js
 console.log('one');
-console.log('two');
+setTimeout(() => {
+  console.log('two')
+});
 console.log('three');
 ```
 
@@ -74,7 +67,9 @@ console.log('three');
 
 ```js
 console.log('one');
-console.log('two');
+setTimeout(() => {
+  console.log('two')
+});
 console.log('three');
 ```
 
