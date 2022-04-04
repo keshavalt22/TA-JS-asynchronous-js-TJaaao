@@ -1,6 +1,29 @@
 - Create four promises that resolve after 1, 2, 3 and 4 seconds with a random value. Using `Promise.all` log the value of each promise that it resolved with.
 
+```js
+const one = new Promise((res, rej) => {
+  setTimeout(() => res(1), 1000)
+})
+const two = new Promise((res, rej) => {
+  setTimeout(() => res(2), 2000)
+})
+const three = new Promise((res, rej) => {
+  setTimeout(() => res(3), 3000)
+})
+const four = new Promise((res, rej) => {
+  setTimeout(() => res(4), 4000)
+})
+
+let all = Promise.all([one, two, three, four])
+  .then((res) => console.log(res));
+
+```
+
+
 - Create a list of 5 Github usernames in an array and using `Promise.all` get access to the data of each user from GitHub API. Log the number of followers of each user.
+
+
+
 
 - Use `Promise.race` to see which API resolves faster from the given list of URLs. Log the object you get from the promise that is resolved faster.
 
@@ -19,6 +42,14 @@ const two = new Promise((resolve, reject) =>
 const three = new Promise((resolve, reject) =>
   setTimeout(() => resolve('John'), 3000)
 );
+
+
+Promise.allSettled(promises).
+  then((results) => results.forEach((result) => console.log(result.status)));
+
+
+let all = Promise.all([one, two, three])
+  .then((res) => console.log(res));
 ```
 
 - What will be the output of the following code snippet? How much time will it take for the promise to resolve?
